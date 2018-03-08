@@ -1,0 +1,20 @@
+<input type="text" placeholder="Enter item to add" #itemField>
+
+<button (click)="
+        addItem(itemField.value); 
+        itemField.value = null;
+    ">
+  Add Item
+</button>
+
+<div class="list-window">
+  <div class="list-item-row" *ngFor="let item of listItems">
+    <li class="list-item-active" (click)="completeItem($event)">
+      {{ item.entry }}
+    </li>
+    <div class="deleteBtn" (click)="deleteItem($event, item.id)">
+      <div class="deleteCross1"></div>
+      <div class="deleteCross2"></div>
+    </div>
+  </div>
+</div>
